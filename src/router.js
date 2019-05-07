@@ -42,5 +42,10 @@ export default new Router({
         name: 'ceshi',
         component: () => import('./views/Ceshi.vue')
     },
+    {
+        path: '/animation',
+        name: 'animation',
+        component: () => import('./views/Animation.vue')
+    },
   ]
 })
