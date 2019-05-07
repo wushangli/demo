@@ -40,12 +40,12 @@ export default new Router({
     {
         path: '/ceshi',
         name: 'ceshi',
-        component: () => import('./views/Ceshi.vue')
+        component: () => import('./views/lianxi/Ceshi.vue')
     },
     {
         path: '/animation',
         name: 'animation',
-        component: () => import('./views/Animation.vue')
+        component: () => import('./views/lianxi/Animation.vue')
     },
   ]
 })
