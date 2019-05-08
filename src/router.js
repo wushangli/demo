@@ -47,5 +47,10 @@ export default new Router({
         name: 'animation',
         component: () => import('./views/lianxi/Animation.vue')
     },
+    {
+        path: '/filter',
+        name: 'filter',
+        component: () => import('./views/lianxi/Filter.vue')
+    },
   ]
 })
