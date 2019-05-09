@@ -52,5 +52,10 @@ export default new Router({
         name: 'filter',
         component: () => import('./views/lianxi/Filter.vue')
     },
+    {
+        path: '/hello',
+        name: 'hello',
+        component: () => import('./views/lianxi/Hello.vue')
+    },
   ]
 })
