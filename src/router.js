@@ -57,5 +57,10 @@ export default new Router({
         name: 'hello',
         component: () => import('./views/lianxi/Hello.vue')
     },
+    {
+        path: '/lianxi',
+        name: 'lianxi',
+        component: () => import('./views/lianxi2/App.vue')
+    },
   ]
 })

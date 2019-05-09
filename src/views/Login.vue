@@ -6,7 +6,8 @@
             密码：
             <input type="password" v-model="password"/>
             <button type="button" @click="login()">登陆</button>
-            <button type="button" @click="reg()" >注册</button>
+            <button type="button" @click="reg()" >注册</button><br/>
+            <button type="button" @click="jump()">跳转</button>
         </form>
         <form v-else>
             用户名：
@@ -60,6 +61,9 @@
                 }else {
                     alert("两次密码不一致")
                 }
+            },
+            jump(){
+                this.$router.push('./lianxi')
             }
         }
     }
