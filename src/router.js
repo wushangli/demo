@@ -62,5 +62,10 @@ export default new Router({
         name: 'lianxi',
         component: () => import('./views/lianxi2/App.vue')
     },
+    {
+        path: '/todo',
+        name: 'todo',
+        component: () => import('./views/ToDoLianxi/App.vue')
+    },
   ]
 })

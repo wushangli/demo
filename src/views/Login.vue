@@ -7,7 +7,8 @@
             <input type="password" v-model="password"/>
             <button type="button" @click="login()">登陆</button>
             <button type="button" @click="reg()" >注册</button><br/>
-            <button type="button" @click="jump()">跳转</button>
+            <button type="button" @click="jump()">跳转</button><br/>
+            <button type="button" @click="jumptodo()">跳转todo</button><br/>
         </form>
         <form v-else>
             用户名：
@@ -64,6 +65,9 @@
             },
             jump(){
                 this.$router.push('./lianxi')
+            },
+            jumptodo(){
+                this.$router.push('./todo')
             }
         }
     }
