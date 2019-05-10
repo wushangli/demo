@@ -11,7 +11,7 @@
         </header>
         <div class="container">
             <add :additemVal="additemVal"></add>
-            <List :itemVal="itemVal"></List>
+            <List :itemVal="itemVal" :delItemVal="delItemVal"></List>
         </div>
     </div>
 
@@ -45,9 +45,14 @@
             }
         },
         methods: {
+            //添加方法
             additemVal(val){
                 this.itemVal.unshift(val)
 
+            },
+            //删除方法
+            delItemVal(index){
+                this.itemVal.splice(index,1)
             }
 
         }
