@@ -10,7 +10,7 @@
             </div>
         </header>
         <div class="container">
-            <add></add>
+            <add :additemVal="additemVal"></add>
             <List :itemVal="itemVal"></List>
         </div>
     </div>
@@ -43,6 +43,13 @@
                     },
                 ]
             }
+        },
+        methods: {
+            additemVal(val){
+                this.itemVal.unshift(val)
+
+            }
+
         }
     }
 
