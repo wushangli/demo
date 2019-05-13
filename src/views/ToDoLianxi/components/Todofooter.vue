@@ -1,18 +1,37 @@
 <template>
     <div class="todo-footer">
         <label>
-            <input type="checkbox"/>
+            <input type="checkbox" v-model="isShowAll"/>
         </label>
         <span>
-          <span>已完成0</span> / 全部2
+          <span>已完成{{comepleteSize}}</span> / 全部{{itemList.length}}
         </span>
-        <button class="btn btn-danger">清除已完成任务</button>
+        <button class="btn btn-danger" @click="delItemss">清除已完成任务</button>
     </div>
 </template>
 
 <script>
     export default {
-        name: "Todofooter"
+        name: "Todofooter",
+        props: {
+            itemList: Array,
+            selectAllCheck: Function,
+            delItemss: Function
+        },
+        computed: {
+            comepleteSize() {
+                return this.itemList.reduce((pretotal,item) => pretotal+(item.comeplete?1:0),0)
+            },
+            isShowAll: {
+                get() {
+
+                    return this.comepleteSize === this.itemList.length && this.itemList.length>0
+                },
+                set(check) {
+                    this.selectAllCheck(check)
+                }
+            }
+        }
     }
 </script>
 

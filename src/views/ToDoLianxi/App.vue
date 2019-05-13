@@ -3,7 +3,7 @@
         <div class="todo-wrap">
             <TodoHeader :addTodo="addTodo"/>
             <TodoList :itemList="itemList" :delItem="delItem"></TodoList>
-            <Todofooter/>
+            <Todofooter :itemList="itemList" :delItemss="delItemss" :selectAllCheck="selectAllCheck" />
         </div>
     </div>
 </template>
@@ -38,6 +38,14 @@
             //删除方法
             delItem(index){
                 this.itemList.splice(index,1);
+            },
+            //全选/全部选
+            selectAllCheck(check){
+                this.itemList.forEach(item => item.comeplete = check)
+            },
+            //删除comeplete为true的
+            delItemss(){
+                this.itemList = this.itemList.filter(item => !item.comeplete)
             }
         }
 
