@@ -6,6 +6,11 @@
             <TodoHeader ref="header"/>
             <TodoList :itemList="itemList" ></TodoList>
             <Todofooter :itemList="itemList" :delItemss="delItemss" :selectAllCheck="selectAllCheck" />
+            <todofooter>
+                <input type="checkbox" v-model="isShowAll" slot="checkAll"/>
+                <span slot="cout">已完成{{comepleteSize}}  / 全部{{itemList.length}}</span>
+                <button class="btn btn-danger" @click="delItemss" slot="delete">清除已完成任务</button>
+            </todofooter>
         </div>
     </div>
 </template>
@@ -34,6 +39,20 @@
                     // {title: "博弈", comeplete: false},
                 // ]
                 itemList: JSON.parse(window.localStorage.getItem("item_key") || '[]')
+            }
+        },
+        computed: {
+            comepleteSize() {
+                return this.itemList.reduce((pretotal,item) => pretotal+(item.comeplete?1:0),0)
+            },
+            isShowAll: {
+                get() {
+
+                    return this.comepleteSize === this.itemList.length && this.itemList.length>0
+                },
+                set(check) {
+                    this.selectAllCheck(check)
+                }
             }
         },
         methods: {
