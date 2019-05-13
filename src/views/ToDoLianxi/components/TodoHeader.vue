@@ -9,7 +9,7 @@
     export default {
         name: "TodoHeader",
         props:{
-            addTodo: Function
+            // addTodo: Function
         },
         data(){
             return {
@@ -29,7 +29,8 @@
                     title: title, comeplete: false
                 }
                 //3.调用添加方法
-                this.addTodo(todo)
+                // this.addTodo(todo)
+                this.$emit('addTodo',todo)//出发自定义事件
                 //4.清空title
                 this.title =''
             }

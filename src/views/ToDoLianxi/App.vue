@@ -1,7 +1,8 @@
 <template>
     <div class="todo-container">
         <div class="todo-wrap">
-            <TodoHeader :addTodo="addTodo"/>
+            <!--<TodoHeader :addTodo="addTodo"/>-->
+            <TodoHeader @addTodo="addTodo"/><!--给TodoHeader绑定addTodo监听-->
             <TodoList :itemList="itemList" :delItem="delItem"></TodoList>
             <Todofooter :itemList="itemList" :delItemss="delItemss" :selectAllCheck="selectAllCheck" />
         </div>
