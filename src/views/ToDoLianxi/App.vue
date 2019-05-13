@@ -4,23 +4,26 @@
             <!--<TodoHeader :addTodo="addTodo"/>-->
             <!--<TodoHeader @addTodo="addTodo"/>&lt;!&ndash;给TodoHeader绑定addTodo监听&ndash;&gt;-->
             <TodoHeader ref="header"/>
-            <TodoList :itemList="itemList" :delItem="delItem"></TodoList>
+            <TodoList :itemList="itemList" ></TodoList>
             <Todofooter :itemList="itemList" :delItemss="delItemss" :selectAllCheck="selectAllCheck" />
         </div>
     </div>
 </template>
 
 <script>
+    import pubSub from 'pubsub-js'
     import '../../../static/css/index.css'
     import TodoHeader from './components/TodoHeader'
     import TodoList from  './components/TodoList'
     import Todofooter from './components/Todofooter'
+
     export default {
         name: "App",
         components: {
             Todofooter,
             TodoHeader,
-            TodoList
+            TodoList,
+            pubSub
         },
 
         data() {
@@ -64,6 +67,12 @@
         mounted() {
             // 给TodoHeader绑定addTodo监听
             this.$refs.header.$on('addTodo',this.addTodo)
+
+
+            //订阅消息
+            pubSub.subscribe('delItem',(msg,index)=>{
+                this.delItem(index)
+            })
     }
 
     }

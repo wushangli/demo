@@ -9,12 +9,14 @@
 
 </template>
 <script>
+    import pubSub from 'pubsub-js'
+
     export default {
         name: "TodoItem",
         props:{
             content: Object,
             index: Number,
-            delItem: Function
+            // delItem: Function
 
         },
         data() {
@@ -42,7 +44,9 @@
                 //获取删除方法
                 if(window.confirm('确定'+content.title+'信息?')){
 
-                    this.delItem(index)
+                    // this.delItem(index)
+                    //发布消息
+                    pubSub.publish('delItem',index)
                 }
 
             }
