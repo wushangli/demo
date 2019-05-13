@@ -21,6 +21,7 @@
     import TodoHeader from './components/TodoHeader'
     import TodoList from  './components/TodoList'
     import Todofooter from './components/Todofooter'
+    import StorageUtil from './util/storageUtil'
 
     export default {
         name: "App",
@@ -28,7 +29,8 @@
             Todofooter,
             TodoHeader,
             TodoList,
-            pubSub
+            pubSub,
+            StorageUtil
         },
 
         data() {
@@ -38,7 +40,7 @@
                     // {title: "胜天半子", comeplete: true},
                     // {title: "博弈", comeplete: false},
                 // ]
-                itemList: JSON.parse(window.localStorage.getItem("item_key") || '[]')
+                itemList: StorageUtil.readdata()
             }
         },
         computed: {
@@ -77,9 +79,8 @@
             itemList: {
 
                 deep: true,//深度监视
-                    handler: function (val) {
-                    window.localStorage.setItem('item_key', JSON.stringify(val))
-                }
+                handler: StorageUtil.saveData
+
             }
 
         },
