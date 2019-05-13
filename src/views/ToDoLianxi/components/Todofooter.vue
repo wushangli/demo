@@ -1,14 +1,11 @@
 <template>
     <div class="todo-footer">
         <label>
-            <!--<input type="checkbox" v-model="isShowAll"/>-->
             <slot name="checkAll"></slot>
         </label>
         <span>
-          <!--<span>已完成{{comepleteSize}}  / 全部{{itemList.length}}</span> -->
             <slot name="cout"></slot>
         </span>
-        <!--<button class="btn btn-danger" @click="delItemss">清除已完成任务</button>-->
         <slot name="delete"></slot>
     </div>
 </template>
