@@ -22,12 +22,12 @@
         },
         data() {
             return {
-                itemList: [
-                    {title: "与天博弈", comeplete: false},
-                    {title: "胜天半子", comeplete: true},
-                    {title: "博弈", comeplete: false},
-
-                ]
+                // itemList: [
+                    // {title: "与天博弈", comeplete: false},
+                    // {title: "胜天半子", comeplete: true},
+                    // {title: "博弈", comeplete: false},
+                // ]
+                itemList: JSON.parse(window.localStorage.getItem("item_key") || '[]')
             }
         },
         methods: {
@@ -47,6 +47,16 @@
             delItemss(){
                 this.itemList = this.itemList.filter(item => !item.comeplete)
             }
+        },
+        watch: { //监视
+            itemList: {
+
+                deep: true,//深度监视
+                    handler: function (val) {
+                    window.localStorage.setItem('item_key', JSON.stringify(val))
+                }
+            }
+
         }
 
     }
