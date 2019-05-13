@@ -2,7 +2,8 @@
     <div class="todo-container">
         <div class="todo-wrap">
             <!--<TodoHeader :addTodo="addTodo"/>-->
-            <TodoHeader @addTodo="addTodo"/><!--给TodoHeader绑定addTodo监听-->
+            <!--<TodoHeader @addTodo="addTodo"/>&lt;!&ndash;给TodoHeader绑定addTodo监听&ndash;&gt;-->
+            <TodoHeader ref="header"/>
             <TodoList :itemList="itemList" :delItem="delItem"></TodoList>
             <Todofooter :itemList="itemList" :delItemss="delItemss" :selectAllCheck="selectAllCheck" />
         </div>
@@ -21,6 +22,7 @@
             TodoHeader,
             TodoList
         },
+
         data() {
             return {
                 // itemList: [
@@ -58,9 +60,14 @@
                 }
             }
 
-        }
+        },
+        mounted() {
+            // 给TodoHeader绑定addTodo监听
+            this.$refs.header.$on('addTodo',this.addTodo)
+    }
 
     }
+
 </script>
 
 <style scoped>
