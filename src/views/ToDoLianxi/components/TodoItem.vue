@@ -4,7 +4,7 @@
         <input type="checkbox" v-model="content.comeplete" />
         <span>{{content.title}}</span>
         </label>
-        <button class="btn btn-danger" v-show="isShow">删除</button>
+        <button class="btn btn-danger" v-show="isShow" @click="del()">删除</button>
     </li>
 
 </template>
@@ -13,7 +13,9 @@
         name: "TodoItem",
         props:{
             content: Object,
-            index: Number
+            index: Number,
+            delItem: Function
+
         },
         data() {
           return{
@@ -33,6 +35,16 @@
                     this.bgColor='white'
                     this.isShow=false
                 }
+            },
+            del(){
+                //获取参数
+                const {content,index}=this
+                //获取删除方法
+                if(window.confirm('确定'+content.title+'信息?')){
+
+                    this.delItem(index)
+                }
+
             }
         }
     }

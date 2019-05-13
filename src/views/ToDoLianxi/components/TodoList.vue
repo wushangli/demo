@@ -5,6 +5,7 @@
             :key="index"
             :content="content"
             :index="index"
+            :delItem="delItem"
         ></TodoItem>
     </ul>
 </template>
@@ -20,7 +21,8 @@
         props: {
             itemList: {
                 type: Array
-            }
+            },
+            delItem: Function
         }
     }
 </script>

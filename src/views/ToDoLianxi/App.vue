@@ -2,7 +2,7 @@
     <div class="todo-container">
         <div class="todo-wrap">
             <TodoHeader :addTodo="addTodo"/>
-            <TodoList :itemList="itemList"></TodoList>
+            <TodoList :itemList="itemList" :delItem="delItem"></TodoList>
             <Todofooter/>
         </div>
     </div>
@@ -31,8 +31,13 @@
             }
         },
         methods: {
+            //添加方法
             addTodo(todo){
                 this.itemList.unshift(todo)
+            },
+            //删除方法
+            delItem(index){
+                this.itemList.splice(index,1);
             }
         }
 
