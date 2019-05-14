@@ -10,6 +10,7 @@
             <button type="button" @click="jump()">跳转</button><br/>
             <button type="button" @click="jumptodo()">跳转todo</button><br/>
             <button type="button" @click="jumpaxios()">跳转axios</button><br/>
+            <button type="button" @click="jumpausers()">跳转users</button><br/>
         </form>
         <form v-else>
             用户名：
@@ -72,6 +73,10 @@
             },
             jumpaxios(){
                 this.$router.push('./axios')
+            },
+            jumpausers(){
+                this.$router.push('./userpage')
+
             }
         }
     }

@@ -77,5 +77,10 @@ export default new Router({
         name: 'axios',
         component: () => import('./views/axions/App.vue')
     },
+    {
+        path: '/userpage',
+        name: 'userpage',
+        component: () => import('./views/users/App.vue')
+    },
   ]
 })
