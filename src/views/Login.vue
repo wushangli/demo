@@ -9,6 +9,7 @@
             <button type="button" @click="reg()" >注册</button><br/>
             <button type="button" @click="jump()">跳转</button><br/>
             <button type="button" @click="jumptodo()">跳转todo</button><br/>
+            <button type="button" @click="jumpaxios()">跳转axios</button><br/>
         </form>
         <form v-else>
             用户名：
@@ -68,6 +69,9 @@
             },
             jumptodo(){
                 this.$router.push('./todo')
+            },
+            jumpaxios(){
+                this.$router.push('./axios')
             }
         }
     }

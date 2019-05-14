@@ -72,5 +72,10 @@ export default new Router({
         name: 'todo',
         component: () => import('./views/ToDoLianxi1/App.vue')
     },
+    {
+        path: '/axios',
+        name: 'axios',
+        component: () => import('./views/axions/App.vue')
+    },
   ]
 })
